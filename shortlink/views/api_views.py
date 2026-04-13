@@ -48,7 +48,7 @@ class UrlAPIView(APIView):
         created_at = timezone.now()
         deactivate_at = created_at + timedelta(days=30)
 
-        record = Urls(long_url=long_url, short_url=short_url.split('/'),
+        record = Urls(long_url=long_url, short_url=short_url,
                     created_at=created_at,
                     deactivate_date=deactivate_at
                     )
