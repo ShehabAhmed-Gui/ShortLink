@@ -9,6 +9,9 @@ BASE = len(ALPHABET)
 def cache_response(key, value, timeout=15*60):
     cache.set(key, value, timeout=timeout)
 
+def delete_cache(key):
+    cache.delete(key)
+
 
 def get_cache(key):
     return cache.get(key)
