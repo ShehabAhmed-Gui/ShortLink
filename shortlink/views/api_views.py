@@ -55,7 +55,7 @@ class UrlAPIView(APIView):
         record.save()
         return Response({
             'url': long_url,
-            'short_url': short_url,
+            'short_url': f'shortlink/{short_url}',
             'created_at': created_at,
             'deactivate_at': deactivate_at
         })  
