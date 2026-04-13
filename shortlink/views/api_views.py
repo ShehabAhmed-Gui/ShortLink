@@ -1,5 +1,4 @@
 from django.shortcuts import get_object_or_404
-
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from ..utils.url_utils import generate_short_url, cache_response, get_cache
@@ -45,7 +44,7 @@ class UrlAPIView(APIView):
         long_url = request.data.get('url')
         self.validate_url(long_url)
 
-        short_url = generate_short_url(long_url)
+        short_url = generate_short_url()
         created_at = timezone.now()
         deactivate_at = created_at + timedelta(days=30)
 
@@ -59,7 +58,7 @@ class UrlAPIView(APIView):
             'short_url': short_url,
             'created_at': created_at,
             'deactivate_at': deactivate_at
-        })
+        })  
     
     def put(self, request, short_url):
         # Update short url
